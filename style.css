@@ -14,6 +14,7 @@ body{
     font-weight: 500;
     display: flex;
     min-height: 100vh;      /* 100vh/ 100vw significa 100% de altura em relação a viewport, que é o tamanho total da tela   */
+    min-width: 100vw ;
 } 
 
 main {
@@ -28,6 +29,7 @@ main h1 {
     color: #8880fe;
     font-size: 3rem;
     margin-bottom: 3rem;
+    text-align: center;
 }
 
 main.social-media  {
@@ -123,13 +125,15 @@ main form input[type="submit"]:hover {
 }
 
 section.images {
+    width: 50vw;
     display: flex;
     align-items: flex-end; /* Alinhou o Elemento, alinhando no final do container, ou seja, em baixo */
+    justify-content: flex-end;
     padding: 4rem;
 }
 
 section.images img {
-    width: 90%;
+    width: 100%;
 }
 
 section.images .circle{
@@ -142,4 +146,36 @@ section.images .circle{
     background: linear-gradient(45deg, #e8cbc0, #636fa4); /* Colocando a gradiente no circulo */
     clip-path: circle(40% at right 80%); /*Recortando o elemento em formato de circulo, tomanho de x%  - a direita, a x%*/
     z-index: -1; /* Eixo Z, Coloca o elemento na camada -1, ou seja, abaixo das demais (Lembrando que funciona somente com elementos que tenham propriedade POSITION ) */
+}
+
+@media only screen and (min-width: 900px) and (max-width: 1200px) {
+    section.images img {
+        width: 110% ;
+    }
+    section.images .circle {
+        clip-path: circle(35% at right 80%); 
+    }
+}
+
+@media only screen and (max-width: 900px){
+    section.images  {
+        display: none;
+        visibility: hidden;
+    }
+
+    main {
+        width: 100vw;
+    }
+}
+
+@media only screen and (max-width: 450){
+    main h1 {
+        font-size: 2rem;
+    }
+    main .alternative span {
+        font-size: 0.8rem;
+    }
+    main form labem span, main form input[type="submit"] {
+        font-size: 1rem;
+    }
 }
